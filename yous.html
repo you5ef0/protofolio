@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yousef Nabil's Portfolio | Cybersecurity Analyst</title>
+    <style>
+        /* --- Global Styles --- */
+        :root {
+            --dark-bg: #1a1a2e; /* Dark Background */
+            --card-bg: #1f1f3a; /* Card Background */
+            --primary-blue: #007bff; /* Accent Blue */
+            --light-text: #f0f0f0; /* Main Text */
+            --secondary-text: #a0a0c0; /* Subdued Text */
+            --border-color: #3a3a5a; /* Border Color */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Tahoma", sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        h1, h2, h3 {
+            color: var(--light-text);
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 3rem;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary-blue);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: var(--secondary-text);
+            margin-bottom: 15px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0; /* Remove default padding */
+        }
+
+        li {
+            position: relative;
+            padding-left: 25px; /* Space for the bullet */
+            color: var(--secondary-text);
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        li::before {
+            content: '•'; /* Bullet character */
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--primary-blue);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #4da3ff;
+        }
+
+        /* --- Navigation Bar --- */
+        .navbar {
+            background-color: var(--card-bg);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--light-text);
+        }
+
+        .navbar .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .navbar .nav-links li {
+            margin-left: 25px;
+        }
+         .navbar .nav-links li::before {
+            content: none; /* Hide bullets in nav */
+         }
+
+        .navbar .nav-links a {
+            color: var(--light-text);
+            font-weight: 500;
+        }
+        
+        .navbar .nav-links a:hover {
+            color: var(--primary-blue);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding-top: 60px; /* To offset navbar */
+        }
+
+        .hero h1 {
+            margin-bottom: 10px;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.8rem;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+
+        .hero .summary {
+            font-size: 1.2rem;
+            max-width: 600px;
+            color: var(--secondary-text);
+        }
+        
+        .hero .cta-button {
+            display: inline-block;
+            background-color: var(--primary-blue);
+            color: #fff;
+            padding: 12px 25px;
+            border-radius: 5px;
+            margin-top: 30px;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        
+        .hero .cta-button:hover {
+             background-color: #0056b3;
+             transform: translateY(-2px);
+        }
+
+        /* --- About Section --- */
+        #about {
+            text-align: center;
+        }
+        #about p {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+        }
+
+        /* --- Skills Section --- */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .skill-category {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            flex-basis: 300px;
+            flex-grow: 1;
+            border: 1px solid var(--border-color);
+        }
+        
+        .skill-category h3 {
+             margin-bottom: 15px;
+        }
+        
+        .skill-category p {
+            font-size: 1rem;
+            margin-bottom: 0;
+        }
+        
+        .skills-list {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .skill-pill {
+            display: inline-block;
+            background-color: var(--card-bg);
+            border: 1px solid var(--primary-blue);
+            color: var(--light-text);
+            padding: 8px 15px;
+            border-radius: 20px;
+            margin: 5px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* --- Projects Section --- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+        
+        .project-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 30px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 123, 255, 0.1);
+        }
+        
+        .project-card h3 {
+             margin-bottom: 10px;
+        }
+        
+        .project-card .project-link {
+            display: inline-block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        
+        .project-card .tech-tags {
+            margin: 15px 0;
+        }
+        
+        .project-card .tech-tag {
+            display: inline-block;
+            background-color: var(--dark-bg);
+            color: var(--primary-blue);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.85rem;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+
+        /* --- Experience Section --- */
+        .experience-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .experience-item {
+            padding: 20px 40px;
+            position: relative;
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .experience-item h3 {
+            margin-bottom: 5px;
+        }
+        
+        .experience-item .company-date {
+            display: block;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--secondary-text);
+            margin-bottom: 15px;
+        }
+        
+        .company-date span {
+            color: var(--light-text);
+        }
+        
+
+        /* --- Education & Certs Section --- */
+        .education-certs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .edu-card, .cert-card {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .edu-card h3 {
+            margin-bottom: 5px;
+        }
+
+        .edu-card .university {
+            font-size: 1.1rem;
+            color: var(--secondary-text);
+            margin-bottom: 5px;
+        }
+        
+        .edu-card .date {
+            font-size: 1rem;
+            color: var(--secondary-text);
+        }
+        
+        .cert-card ul {
+            padding-left: 0;
+        }
+        
+        .cert-card li {
+            position: relative;
+            padding-left: 30px; /* Space for emoji */
+            color: var(--light-text);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .cert-card li::before {
+             content: '🏆'; /* Emoji */
+             position: absolute;
+             left: 0;
+             top: 0;
+        }
+
+        .cert-card .status {
+            font-size: 0.9rem;
+            color: var(--secondary-text);
+            margin-right: 5px;
+        }
+        
+        /* --- Languages Section --- */
+        .languages-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            text-align: center;
+        }
+        
+        .language-item h3 {
+            color: var(--light-text);
+        }
+        
+        .language-item p {
+            color: var(--primary-blue);
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        /* --- Contact Section --- */
+        #contact {
+            text-align: center;
+        }
+
+        #contact p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
+        
+        .contact-links a {
+            font-size: 1.2rem;
+            margin: 0 15px;
+            font-weight: 500;
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            background-color: var(--card-bg);
+            border-top: 1px solid var(--border-color);
+            margin-top: 40px;
+        }
+        
+        footer p {
+            margin: 0;
+            color: var(--secondary-text);
+        }
+        
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .navbar .container {
+                flex-direction: column;
+            }
+            
+            .navbar .nav-links {
+                margin-top: 10px;
+            }
+            
+            .navbar .nav-links li {
+                margin: 0 10px;
+            }
+            
+            .hero {
+                height: auto;
+                padding: 120px 0 60px 0;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="#home" class="logo">Yousef Nabil</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero" id="home">
+        <h1>Yousef Nabil Yousef Hagir</h1>
+        <p class="subtitle">Cybersecurity Analyst</p>
+        <p class="summary">Passionate and dedicated professional with solid hands-on experience in Security Operations, Threat Monitoring, and Incident Response.</p>
+        <a href="#contact" class="cta-button">Contact Me</a>
+    </header>
+
+    <main>
+        <section id="about" class="container">
+            <h2>About Me</h2>
+            <p>I am a passionate and dedicated Cybersecurity Analyst with solid hands-on experience in Security Operations, Threat Monitoring, and Incident Response. I thrive in environments where analytical thinking and technical precision are essential. Through DEPI and NTI cybersecurity tracks, I gained real exposure to SIEM platforms, network defense mechanisms, vulnerability management, and security incident handling. I continuously seek to improve detection capabilities and strengthen cyber resilience against evolving threats.</p>
+        </section>
+
+        <section id="skills" class="container">
+            <h2>Technical Skills & Tools</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Network Security & Defense</h3>
+                    <p>Comprehensive network protection and monitoring</p>
+                </div>
+                <div class="skill-category">
+                    <h3>SIEM Operations</h3>
+                    <p>Log Analysis, Threat Monitoring</p>
+                </div>
+                <div class="skill-category">
+                    <h3>Incident Response & Handling</h3>
+                    <p>Full-cycle incident management</p>
+                </div>
+            </div>
+            
+            <div class="skills-list">
+                <h3>Additional Skills:</h3>
+                <span class="skill-pill">Vulnerability Management</span>
+                <span class="skill-pill">Network Forensics</span>
+                <span class="skill-pill">Networking Fundamentals (CCNA level)</span>
+            </div>
+            
+            <div class="skills-list">
+                <h3>Tools & Technologies:</h3>
+                <span class="skill-pill">Wazuh</span>
+                <span class="skill-pill">Snort</span>
+                <span class="skill-pill">pfSense</span>
+                <span class="skill-pill">Kali Linux</span>
+                <span class="skill-pill">DVWA</span>
+                <span class="skill-pill">Wireshark</span>
+            </div>
+        </section>
+
+        <section id="projects" class="container">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                
+                <div class="project-card">
+                    <h3>Mini SOC Project</h3>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Snort</span>
+                        <span class="tech-tag">pfSense</span>
+                        <span class="tech-tag">Wazuh</span>
+                        <span class="tech-tag">Kali Linux</span>
+                        <span class="tech-tag">DVWA</span>
+                    </div>
+                    <p>A complete SOC simulation that included:</p>
+                    <ul>
+                        <li>Setting up intrusion detection using Snort</li>
+                        <li>Configuring pfSense for traffic filtering and network monitoring</li>
+                        <li>Integrating event logs into Wazuh SIEM</li>
+                        <li>Analyzing real-world attacks executed via Kali Linux on DVWA</li>
+                    </ul>
+                    <p>This project strengthened my end-to-end understanding of threat detection and response workflows.</p>
+                </div>
+                
+                <div class="project-card">
+                    <h3>Incident Response Project</h3>
+                    <p>A practical simulation of a full incident lifecycle involving:</p>
+                    <ul>
+                        <li>Detection of malicious activity in enterprise environments</li>
+                        <li>IoC extraction and correlation with threat intelligence</li>
+                        <li>Root cause and forensic analysis</li>
+                        <li>Documentation and reporting using IR playbooks</li>
+                    </ul>
+                    <a href="https://github.com/you5ef0/Depi-project" target="_blank" class="project-link">View Project on GitHub</a>
+                </div>
+
+            </div>
+        </section>
+        
+        <section id="experience" class="container">
+            <h2>Professional Experience</h2>
+            <div class="experience-timeline">
+                
+                <div class="experience-item">
+                    <h3>SOC Analyst</h3>
+                    <span class="company-date"><span>Digital Egypt Pioneers Initiative (DEPI)</span> | July 2025 - Present</span>
+                    <p>During my SOC role, I actively contributed to real-world monitoring and defense operations:</p>
+                    <ul>
+                        <li>Monitoring and analyzing security alerts and logs for suspicious activity</li>
+                        <li>Investigating cyber threats and attacker TTPs using SIEM platforms</li>
+                        <li>Managing and documenting incidents to maintain an accurate security trail</li>
+                        <li>Conducting vulnerability assessment and remediation</li>
+                        <li>Interpreting Indicators of Compromise (IoCs) and responding accordingly</li>
+                        <li>Providing reporting and insights to enhance organizational security posture</li>
+                    </ul>
+                </div>
+                
+                <div class="experience-item">
+                    <h3>Incident Response Analyst</h3>
+                    <span class="company-date"><span>Digital Egypt Pioneers Initiative (DEPI)</span> | April 2024 - October 2024</span>
+                    <p>I played a significant role in operational cyber defense drills and IR-focused scenarios:</p>
+                    <ul>
+                        <li>Performing vulnerability scans and risk evaluation</li>
+                        <li>Investigating attacks to identify root causes and lateral movement paths</li>
+                        <li>Applying structured remediation and incident containment steps</li>
+                        <li>Preparing and defending against scenario-based cyberattacks</li>
+                        <li>Capstone project: Navigating a Cybersecurity Incident simulating a full-cycle IR operation from detection to recovery</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="education" class="container">
+            <h2>Education & Certifications</h2>
+            <div class="education-certs-grid">
+                
+                <div class="edu-card">
+                    <h2>Education</h2>
+                    <h3>Bachelor's in Cyber Security and Data Analysis</h3>
+                    <p class="university">Faculty of Electronic Engineering - Menoufia University</p>
+                    <p class="date">2022 - Present</p>
+                </div>
+                
+                <div class="cert-card">
+                    <h2>Certifications</h2>
+                    <ul>
+                        <li><span class="status">[Ongoing]</span> GSOC 450.1</li>
+                        <li><span class="status">[Self Study (Modules .2 & .3)]</span> SANS SEC401</li>
+                        <li><span class="status">[Knowledge Level]</span> CCNA Knowledge Level</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+        
+        <section id="languages" class="container">
+            <h2>Languages</h2>
+            <div class="languages-container">
+                <div class="language-item">
+                    <h3>Arabic</h3>
+                    <p>Native</p>
+                </div>
+                <div class="language-item">
+                    <h3>English</h3>
+                    <p>Professional</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="contact" class="container">
+            <h2>Contact Me</h2>
+            <p>I'm currently available for new opportunities and excited to discuss how my skills can benefit your team. Feel free to reach out!</p>
+            <div class="contact-links">
+                <a href="mailto:youremail@example.com">youremail@example.com</a>
+                <span>|</span>
+                <a href="https://www.linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+                <span>|</span>
+                <a href="https://github.com/you5ef0" target="_blank">GitHub</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 - Yousef Nabil. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
